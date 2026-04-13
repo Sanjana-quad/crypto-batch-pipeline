@@ -6,13 +6,9 @@ st.set_page_config(page_title="Batch Dashboard", layout="wide")
 
 st.title("📊 Crypto Batch Analytics")
 
-spark = SparkSession.builder.getOrCreate()
+import pandas as pd
 
-# Load data
-df = spark.read.parquet("data/processed")
-
-pdf = df.toPandas()
-
+pdf = pd.read_parquet("data/processed")
 # ---- METRICS ----
 st.subheader("🔢 Key Metrics")
 
