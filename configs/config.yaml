@@ -1,0 +1,15 @@
+api:
+  base_url: "https://api.coingecko.com/api/v3"
+  endpoint: "/coins/markets"
+  vs_currency: "usd"
+  per_page: 50
+  page: 1
+
+ingestion:
+  output_dir: "data/raw"
+  file_format: "json"
+  partition_by: "date"
+
+retry:
+  max_retries: 3
+  delay_seconds: 5
