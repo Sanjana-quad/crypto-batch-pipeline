@@ -68,6 +68,7 @@ services:
       - ../dags:/opt/airflow/dags
       - ../src:/opt/airflow/src
       - ../configs:/opt/airflow/configs
+      - ../data:/opt/airflow/data
       - airflow_data:/opt/airflow
       - ../tests:/opt/airflow/tests 
     command: >
