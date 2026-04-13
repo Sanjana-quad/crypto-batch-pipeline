@@ -8,7 +8,7 @@ st.title("📊 Crypto Batch Analytics")
 
 import pandas as pd
 
-pdf = pd.read_parquet("data/processed")
+pdf = pd.read_parquet("data/sample")
 # ---- METRICS ----
 st.subheader("🔢 Key Metrics")
 
