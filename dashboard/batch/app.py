@@ -1,18 +1,17 @@
 import streamlit as st
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
-import pandas as pd
 
 st.set_page_config(page_title="Batch Dashboard", layout="wide")
 
 st.title("📊 Crypto Batch Analytics")
 
-try:
-    pdf = pd.read_parquet("data/processed")
+spark = SparkSession.builder.getOrCreate()
 
-except Exception as e:
-    st.error(f"Data not found: {e}")
-    st.stop()
+# Load data
+df = spark.read.parquet("data/processed")
+
+pdf = df.toPandas()
 
 # ---- METRICS ----
 st.subheader("🔢 Key Metrics")
