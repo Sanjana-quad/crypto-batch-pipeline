@@ -33,6 +33,8 @@ def run_pipeline():
     logger.info("Processed data saved")
     transformed_df.write.mode("overwrite").parquet(LOCAL_PATH)
     logger.info("Local data saved")
+    transformed_df.limit(200).write.mode("overwrite").parquet("data/sample")
+    logger.info("git sample data")
 
     # Aggregations
     agg_df = compute_aggregations(transformed_df)
