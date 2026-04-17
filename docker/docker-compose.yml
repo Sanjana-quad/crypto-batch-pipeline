@@ -44,7 +44,7 @@ services:
       - ../dags:/opt/airflow/dags
       - ../src:/opt/airflow/src
       - ../configs:/opt/airflow/configs
-      - airflow_data:/opt/airflow
+      - ../data:/opt/airflow/data
       - ../tests:/opt/airflow/tests 
     networks:
       - hadoop
@@ -69,7 +69,6 @@ services:
       - ../src:/opt/airflow/src
       - ../configs:/opt/airflow/configs
       - ../data:/opt/airflow/data
-      - airflow_data:/opt/airflow
       - ../tests:/opt/airflow/tests 
     command: >
       bash -c "airflow scheduler"

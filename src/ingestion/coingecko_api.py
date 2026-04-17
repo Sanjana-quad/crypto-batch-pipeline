@@ -9,8 +9,11 @@ from src.utils.logger import setup_logger
 from src.storage.hdfs_client import upload_to_hdfs
 
 logger = setup_logger()
+BASE_PATH = "/opt/airflow/data"
 
 class CoinGeckoIngestor:
+
+    
     def __init__(self):
         self.config = load_config()
         self.base_url = self.config["api"]["base_url"]
@@ -50,7 +53,7 @@ class CoinGeckoIngestor:
         today = datetime.utcnow().strftime("%Y-%m-%d")
         timestamp = datetime.utcnow().strftime("%H-%M-%S")
 
-        dir_path = os.path.join(self.output_dir, f"date={today}")
+        dir_path = os.path.join(BASE_PATH, "raw", f"date={today}")
         os.makedirs(dir_path, exist_ok=True)
 
         file_path = os.path.join(dir_path, f"crypto_{timestamp}.json")

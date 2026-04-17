@@ -50,6 +50,7 @@ temp/
 data/raw/
 data/processed/
 data/analytics/
+data/sample
 
 # Spark and Hadoop local artifacts
 metastore_db/
